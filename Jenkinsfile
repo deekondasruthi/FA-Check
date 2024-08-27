@@ -2,13 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Remove Existing Directory') {
-            steps {
-                script {
-                    sh 'rm -rf FA-Check'
-                }
-            }
-        }
+        
         
         stage('Git clone repository') {
             steps {
@@ -26,15 +20,7 @@ pipeline {
             }
         }
 
-        stage('Docker Cleanup') {
-            steps {
-                script {
-                    sh 'docker stop FE_Container'
-                    sh 'docker rm FE_Container'
-                    sh 'docker image prune -a -f'
-                }
-            }
-        }
+        
 
         stage('Build dockerfile as image') {
             steps {
