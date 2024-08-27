@@ -47,7 +47,7 @@ pipeline {
         stage('Run container') {
             steps {
                 script {
-                    sh 'docker run -itd --name FE_Container -p "8001:80" fa-nginx-image'
+                    sh 'docker run -itd --name FE_Container -p "8000:80" fa-nginx-image'
                 }
             }
         }
