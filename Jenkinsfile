@@ -3,6 +3,13 @@ pipeline {
 
     stages {
         
+        stage('Remove Existing Directory') {
+            steps {
+                script {
+                    sh 'rm -rf FA-Check'
+                }
+            }
+        }
         
         stage('Git clone repository') {
             steps {
