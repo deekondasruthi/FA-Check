@@ -2,26 +2,9 @@ pipeline {
     agent any
 
     stages {
-        
-        stage('Remove Existing Directory') {
-            steps {
-                script {
-                    sh 'rm -rf FA-Check'
-                }
-            }
-        }
-        
-        stage('Git clone repository') {
-            steps {
-                script {
-                    sh 'git clone -b main https://github.com/deekondasruthi/FA-Check.git'
-                }    
-            }
-        }
-
         stage('Unzip file') {
             steps {
-                dir('FA-Check') {
+                script {
                     sh 'unzip Fa-check.zip'
                 }
             }
@@ -39,7 +22,7 @@ pipeline {
 
         stage('Build dockerfile as image') {
             steps {
-                dir('FA-Check') {
+                script {
                     sh 'docker build -t fa-nginx-image .'
                 }
             }
