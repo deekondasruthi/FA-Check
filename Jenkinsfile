@@ -5,7 +5,7 @@ pipeline {
         stage('Unzip file') {
             steps {
                 script {
-                    sh 'unzip Fa-check.zip'
+                    sh 'unzip -o Fa-check.zip'
                 }
             }
         }
