@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  fa-check:
-    image: fa-nginx-image
-    container_name: fe-container
-    ports:
-      - "8000:80"
-    restart: always
