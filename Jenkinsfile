@@ -13,8 +13,8 @@ pipeline {
         stage('Docker Cleanup') {
             steps {
                 script {
-                    sh 'docker stop FE_Container'
-                    sh 'docker rm FE_Container'
+                    sh 'docker stop fe-container'
+                    sh 'docker rm fe-container'
                     sh 'docker image prune -a -f'
                 }
             }
@@ -31,7 +31,7 @@ pipeline {
         stage('Run container') {
             steps {
                 script {
-                    sh 'docker run -itd --name FE_Container -p "8000:80" fa-nginx-image'
+                    sh 'docker run -itd --name fe-container -p "8000:80" fa-nginx-image'
                 }
             }
         }
