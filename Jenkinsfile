@@ -31,7 +31,7 @@ pipeline {
         stage('Run container') {
             steps {
                 script {
-                    sh 'docker run -itd --name fe-container -p "8000:80" fa-nginx-image'
+                    sh 'docker-compose -f docker-compose.yml up -d'
                 }
             }
         }
