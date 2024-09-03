@@ -10,15 +10,7 @@ pipeline {
             }
         }
 
-        stage('docker clenning') {
-            steps {
-                script {
-                    sh 'docker stop fe-container'
-                    sh 'docker rm fe-container'
-                    sh 'docker rmi -f fa-nginx-image'
-                }
-            }
-        }
+        
 
         stage('Build dockerfile as image') {
             steps {
