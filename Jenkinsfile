@@ -13,8 +13,8 @@ pipeline {
         stage('Docker Cleanup') {
             steps {
                 script {
-                    sh 'docker stop fe-container || true'
-                    sh 'docker rm fe-container || true'
+                    sh 'docker stop fa-container || true'
+                    sh 'docker rm fa-container || true'
                     sh 'docker rmi -f fa-nginx-image'
                 }
             }
