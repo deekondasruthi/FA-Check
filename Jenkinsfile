@@ -10,7 +10,15 @@ pipeline {
             }
         }
 
-        
+        stage('Docker Cleanup') {
+            steps {
+                script {
+                    sh 'docker stop fe-container || true'
+                    sh 'docker rm fe-container || true'
+                    sh 'docker rmi -f fa-nginx-image'
+                }
+            }
+        }
 
         stage('Build dockerfile as image') {
             steps {
@@ -23,7 +31,7 @@ pipeline {
         stage('Run container') {
             steps {
                 script {
-                    sh 'docker run -itd --name fe-container -p "8000:80" fe-nginx-image'
+                    sh 'docker run -itd --name fa-container -p "8000:80" fa-nginx-image'
                 }
             }
         }
