@@ -10,15 +10,7 @@ pipeline {
             }
         }
 
-        stage('Docker Cleanup') {
-            steps {
-                script {
-                    sh 'docker stop fe-container'
-                    sh 'docker rm fe-container'
-                    sh 'docker image prune -a -f'
-                }
-            }
-        }
+        
 
         stage('Build dockerfile as image') {
             steps {
