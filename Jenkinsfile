@@ -21,7 +21,7 @@ pipeline {
         stage('Run container') {
             steps {
                 script {
-                    sh 'docker-compose -f docker-compose.yaml up -d'
+                    sh 'docker-compose -f /home/docker-compose/docker-compose.yaml up -d'
                 }
             }
         }
