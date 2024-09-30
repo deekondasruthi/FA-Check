@@ -40,7 +40,7 @@ pipeline {
     post {
         success {
             emailext(
-                to: "sruthi.d@basispay.in",
+                to: "sruthi.d@babujiventures.in",
                 subject: "Build Successful: ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
                 <!DOCTYPE html>
@@ -91,7 +91,7 @@ pipeline {
         }
         failure {
             emailext(
-                to: "sruthi.d@basispay.in",
+                to: "sruthi.d@babujiventures.in",
                 subject: "Build Failed: ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
                 <!DOCTYPE html>
